@@ -5,5 +5,24 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/foundation.css')
   body
+    .top-bar
+      .top-bar-left
+        ul.dropdown.menu(data-dropdown-menu='')
+          li.menu-text
+            a(href='/') CarFix
+          li
+            a(href='/users/login') Login
+          li
+            a(href='/users/register') Register
+      .top-bar-right
+        ul.menu
+          li
+            a(href='/users/logout') Logout
+
 
     block content
+
+    script(src='javascripts/vendor/jquery.js')
+    script(src='javascripts/vendor/foundation.js')
+    script(src='javascripts/f-app.js')
+    script(src='javascripts/vendor/what-input.js')
