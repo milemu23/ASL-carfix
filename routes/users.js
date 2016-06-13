@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-//set route for register
+//render the registration page
 router.get('/register', function(req, res, next) {
   res.render('register', {title: 'Register'});
 });
@@ -26,12 +26,19 @@ router.post('/register', function(req, res, next) {
 
   //Form validator
   req.checkBody('name', 'Name field is required').notEmpty();
+  req.checkBody('email', 'Email field is required').notEmpty();
+  req.checkBody('email', 'Email field not valid').isEmail();
+  req.checkBody('username', 'Username field is required').notEmpty();
+  req.checkBody('password', 'Password field is required').notEmpty();
+  req.checkBody('password2', 'Passwords do not match').equals();
 
   //Check Errors
   var errors = req.validationErrors();
 
   if(errors){
-    console.log('Errors');
+    res.render('register', {
+      errors: errors
+    });
   } else{
     console.log('No Errors');
   }
