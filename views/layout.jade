@@ -8,11 +8,12 @@ html
     .top-bar
       .top-bar-left
         ul.dropdown.menu(data-dropdown-menu='')
-          li.menu-text
-            a(href='/') CarFix
-          li
+          li.menu-text CarFix
+          li(class=(title == 'Members' ? 'active' : ''))
+            a(href='/') Members
+          li(class=(title == 'Login' ? 'active' : ''))
             a(href='/users/login') Login
-          li
+          li(class=(title == 'Register' ? 'active' : ''))
             a(href='/users/register') Register
       .top-bar-right
         ul.menu
@@ -22,7 +23,7 @@ html
 
     block content
 
-    script(src='javascripts/vendor/jquery.js')
-    script(src='javascripts/vendor/foundation.js')
-    script(src='javascripts/f-app.js')
-    script(src='javascripts/vendor/what-input.js')
+    script(src='../javascripts/vendor/jquery.js')
+    script(src='../javascripts/vendor/foundation.js')
+    script(src='../javascripts/f-app.js')
+    script(src='../javascripts/vendor/what-input.js')
